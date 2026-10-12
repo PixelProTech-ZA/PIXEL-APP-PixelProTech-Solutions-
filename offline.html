@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pixel App — offline</title>
+<meta name="theme-color" content="#07070A">
+<style>
+html,body{height:100%;margin:0;background:#07070A;color:#F1EEFA;font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;text-align:center}
+h1{margin:0;font:700 14px ui-monospace,Consolas,monospace;letter-spacing:.16em;text-transform:uppercase}
+h1 span{color:#00D4AA}
+p{margin:0;max-width:460px;color:#8E8B9E}
+a,button{font:inherit;color:#07070A;background:#00D4AA;border:0;padding:9px 18px;font-weight:700;text-decoration:none;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:2px solid #F1EEFA;outline-offset:2px}
+</style>
+</head>
+<body>
+<main>
+  <svg width="72" height="72" viewBox="0 0 512 512" role="img" aria-label="Pixel App mark"><rect width="512" height="512" rx="112" fill="#07070A" stroke="#24242F" stroke-width="6"/><rect x="136" y="150" width="170" height="64" fill="#00D4AA"/><rect x="330" y="150" width="46" height="46" fill="#F1EEFA"/><rect x="136" y="232" width="240" height="64" fill="none" stroke="#00D4AA" stroke-width="10"/><rect x="136" y="314" width="120" height="48" fill="#00D4AA"/></svg>
+  <h1><span>▪</span> You are offline</h1>
+  <p>The Pixel App editor has not been stored on this device yet, so it cannot open without a connection. Connect once and open the app; after that it can start offline.</p>
+  <p>Projects you saved earlier stay in this browser and will be there when the editor opens.</p>
+  <button type="button" onclick="location.reload()">Try again</button>
+</main>
+</body>
+</html>

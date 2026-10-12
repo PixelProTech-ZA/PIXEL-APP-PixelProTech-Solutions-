@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PixelProTech Pixel App</title>
+<meta name="description" content="Original, offline-capable website construction engine by PixelProTech Solutions.">
+<meta name="theme-color" content="#07070A">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="app" class="show-left show-right">
+  <header id="topbar">
+    <div class="brandmark" title="PixelProTech Pixel App">
+      <svg class="logo" aria-hidden="true"><use href="icons.svg#i-logo"/></svg>
+      <div class="bm-text"><b>PIXEL APP</b><small>PixelProTech Solutions</small></div>
+    </div>
+    <label class="visually-hidden" for="projName">Project name</label>
+    <input id="projName" class="projname" type="text" spellcheck="false" placeholder="Project name" disabled>
+    <label class="visually-hidden" for="pageSel">Current page</label>
+    <select id="pageSel" class="pagesel" disabled></select>
+    <div class="tgroup" role="group" aria-label="History">
+      <button id="btnUndo" class="ibtn" type="button" title="Undo (Ctrl+Z)" aria-label="Undo" disabled><svg class="ic"><use href="icons.svg#i-undo"/></svg></button>
+      <button id="btnRedo" class="ibtn" type="button" title="Redo (Ctrl+Shift+Z)" aria-label="Redo" disabled><svg class="ic"><use href="icons.svg#i-redo"/></svg></button>
+    </div>
+    <div class="seg" id="bpSeg" role="group" aria-label="Preview size">
+      <button type="button" class="segb on" data-bp="base" title="Desktop preview" aria-pressed="true"><svg class="ic"><use href="icons.svg#i-desktop"/></svg><span>Desktop</span></button>
+      <button type="button" class="segb" data-bp="tablet" title="Tablet preview — 768 px" aria-pressed="false"><svg class="ic"><use href="icons.svg#i-tablet"/></svg><span>768</span></button>
+      <button type="button" class="segb" data-bp="mobile" title="Mobile preview — 375 px" aria-pressed="false"><svg class="ic"><use href="icons.svg#i-mobile"/></svg><span>375</span></button>
+    </div>
+    <div class="spacer"></div>
+    <div class="pills">
+      <span id="stSave" class="pill" title="Local save status"><i></i><span>NO PROJECT</span></span>
+      <span id="stNet" class="pill" title="Network status"><i></i><span>ONLINE</span></span>
+      <span id="stSw" class="pill" title="Offline application shell"><i></i><span>SHELL …</span></span>
+    </div>
+    <button id="btnInstall" class="btn small hidden" type="button">Install app</button>
+    <button id="btnProjects" class="btn" type="button" title="Projects, import and export of project files"><svg class="ic"><use href="icons.svg#i-storage"/></svg><span>Projects</span></button>
+    <button id="btnPreflight" class="btn" type="button" title="Run Pixel Preflight"><svg class="ic"><use href="icons.svg#i-preflight"/></svg><span>Preflight</span><em id="pfBadge" class="badge hidden"></em></button>
+    <button id="btnExport" class="btn primary" type="button" title="Export website"><svg class="ic"><use href="icons.svg#i-export"/></svg><span>Export</span></button>
+    <button id="btnSettings" class="ibtn" type="button" title="Settings and diagnostics" aria-label="Settings and diagnostics"><svg class="ic"><use href="icons.svg#i-settings"/></svg></button>
+    <button id="btnLeft" class="ibtn only-narrow" type="button" title="Toggle left panel" aria-label="Toggle left panel"><svg class="ic"><use href="icons.svg#i-components"/></svg></button>
+    <button id="btnRight" class="ibtn only-narrow" type="button" title="Toggle inspector" aria-label="Toggle inspector"><svg class="ic"><use href="icons.svg#i-layout"/></svg></button>
+  </header>
+
+  <aside id="left" aria-label="Components and structure">
+    <div class="tabs" role="tablist">
+      <button class="tab on" role="tab" data-tab="add" aria-selected="true"><svg class="ic"><use href="icons.svg#i-components"/></svg><span>Add</span></button>
+      <button class="tab" role="tab" data-tab="layers" aria-selected="false"><svg class="ic"><use href="icons.svg#i-layers"/></svg><span>Layers</span></button>
+      <button class="tab" role="tab" data-tab="pages" aria-selected="false"><svg class="ic"><use href="icons.svg#i-page"/></svg><span>Pages</span></button>
+    </div>
+    <div id="leftBody" class="panelbody"></div>
+  </aside>
+
+  <main id="stage" aria-label="Canvas">
+    <div id="ruler" aria-hidden="true"></div>
+    <div id="frameWrap">
+      <div id="frameBox"><iframe id="canvas" title="Page canvas"></iframe><span class="reg tl"></span><span class="reg tr"></span><span class="reg bl"></span><span class="reg br"></span></div>
+    </div>
+    <div id="emptyState" class="empty"><svg class="logo big" aria-hidden="true"><use href="icons.svg#i-logo"/></svg><p>No project open.</p><button id="btnStart" class="btn primary" type="button">Start a project</button></div>
+  </main>
+
+  <aside id="right" aria-label="Inspector"><div class="rhead"><span class="gn">INSPECTOR</span></div><div id="inspector" class="panelbody"></div></aside>
+
+  <footer id="statusbar"><div id="crumbs" aria-label="Selection path"></div><div id="vpInfo"></div></footer>
+</div>
+
+<div id="toasts" role="status" aria-live="polite"></div>
+<dialog id="dlg" aria-labelledby="dlgTitle"></dialog>
+<noscript><p style="padding:24px;color:#F1EEFA;background:#07070A">Pixel App needs JavaScript to run.</p></noscript>
+
+<script src="components.js"></script>
+<script src="blueprints.js"></script>
+<script src="templates.js"></script>
+<script src="engine.js"></script>
+<script src="storage.js"></script>
+<script src="exporter.js"></script>
+<script src="preflight.js"></script>
+<script src="inspector.js"></script>
+<script src="canvas.js"></script>
+<script src="panels.js"></script>
+<script src="dialogs.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

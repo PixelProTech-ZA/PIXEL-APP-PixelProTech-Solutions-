@@ -1,0 +1,20 @@
+{
+  "id": "pixelprotech-pixel-app-website-builder",
+  "name": "PixelProTech Pixel App — Website Builder",
+  "short_name": "Pixel App",
+  "description": "Original offline-capable website construction engine by PixelProTech Solutions. Build, verify with Pixel Preflight, and export real websites.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#07070A",
+  "theme_color": "#07070A",
+  "lang": "en",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
